@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>{% block title '' %} - Deliverr</title>
+        <meta name="description" content="CLINK - Site de rencontre de colocataires">
+        <meta name="keywords" content="HTML,CSS,JavaScript,PHP">
+        <meta name="author" content="Groupe CLAG">
+        <!-- @Medias -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+
+    <body>
+        
+
+            {{ render(controller('App\\Controller\\IndexController::menu',{'active': active })) }}
+
+
+            {% block contenu %}{% endblock %}
+
+
+            {% include 'inc/footer.html' %}
+
+
+            {% block javascripts %}{% endblock %}
+
+            
+
+    </body>
+
+
+</html>
