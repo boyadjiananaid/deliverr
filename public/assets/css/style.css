@@ -31,13 +31,19 @@ body {
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: -2;
+}
+.formu2 {
+    height: 10%;
+  width: 100%;
+  position: fixed;
+  top: 0;
   z-index: -1;
 }
 .navbar-default {
     background-color: #2d296b!important;
     border: none!important;
 }
-h1,
 h2,
 h3,
 h4,
@@ -45,8 +51,7 @@ h5,
 h6,
 ul,
 li,
-p,
-a {
+p {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -93,9 +98,64 @@ header {
   color: #fefefe;
 }
 #cat {
-    background-color: #000000;
-    margin-top: 4%;
+    margin-top: 2%;
     height: 20vh;
+    text-align: center;
+    color: transparent;
+    z-index: 2;
+}
+#makeawish {
+    position: relative;
+    left: 31%;
+    font-size: 2.5em;
+}
+#cat .liencat {
+    font-size: 2.9em;
+    position: relative;
+    top: 35%;
+}
+#cat:hover {
+    color:#681757;
+    filter:grayscale(0.5);
+}
+#cate {
+    margin-top: 4%;
+}
+.Voyage {
+    background-image: url('../images/voyage.jpg');
+    background-size: cover;
+}
+.Peinture {
+    background-image: url('../images/peinture.jpg');
+    background-size: cover;
+}
+.Musique {
+    background-image: url('../images/musique.jpg');
+    background-size: cover;
+}
+.Beaute {
+    background-image: url('../images/beaute.jpg');
+    background-size: cover;
+}
+.Photovideo {
+    background-image: url('../images/photo.jpg');
+    background-size: cover;
+}
+.Informatique {
+    background-image: url('../images/informatique.jpg');
+    background-size: cover;
+}
+.Sport {
+    background-image: url('../images/sport.jpg');
+    background-size: cover;
+}
+.Cuisine {
+    background-image: url('../images/cuisine.jpg');
+    background-size: cover;
+}
+.Divertissement {
+    background-image: url('../images/divertissement.jpg');
+    background-size: cover;
 }
 #drop{
     background-color: #fed347;
@@ -222,7 +282,6 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: -1;
 }
 footer a {
   margin-left: 10px;

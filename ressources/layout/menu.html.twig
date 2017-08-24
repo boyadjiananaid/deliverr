@@ -1,3 +1,4 @@
+<div class="formu2">
 <header> 
     <div class="container" id="conteneur-header">
         <nav class="navbar navbar-default">
@@ -15,20 +16,20 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right menunu">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle categories" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="menubtn">Catégories <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="drop">
                                 {% for categorie in categories %}
-                                <li><a href="#">{{categorie.LIBELLECATEGORIE}}</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: categorie.LIBELLECATEGORIE | lower}) }}">{{ categorie.LIBELLECATEGORIE }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY')%}
-                        <li><a href="{{ url('technews_deconnexion') }}" id="menubtn">Déconnexion</a></li>
-                        <li><a href="{{ url('technews_propositionservice') }}" id="menubtn">Proposer un service</a></li>
+                        <li><a href="" id="menubtn">Déconnexion</a></li>
+                        <li><a href="" id="menubtn">Proposer un service</a></li>
                         {% else %}
-                        <li><a href="{{ url('technews_connexion') }}" id="menubtn">Connexion</a></li>
+                        <li><a href="" id="menubtn">Connexion</a></li>
                         <li><a href="#" id="menubtn">Inscription</a></li>
                         {% endif %}
                         <li><a href="#" id="menubtn">FAQ</a></li>
@@ -42,3 +43,4 @@
     </div> <!-- conteneur-header -->
 
 </header>
+</div>

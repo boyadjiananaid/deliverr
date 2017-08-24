@@ -5,7 +5,7 @@
 
 {# Block de Contenu défini dans base.html.twig #}
 {% block contenu %}
-<img id="logofond" src="groupe-multi-ethnique-d-39-amis-prenant-un-cafe-ensemble_1139-1029.jpg" class="img-responsive">
+<img id="logofond" src="{{ asset('assets/images/background.jpg') }}" class="img-responsive">
 <figure>
     <img id="logopara" src="{{ asset('assets/images/r-logo2.png') }}" alt="logo Deliverr" width="35%" class="animated rollIn img-responsive">
 </figure>
@@ -24,24 +24,38 @@
 <div class="hik"></div>
 <div class="formu">
 
-    <div class="container">
+    <div class="container" id="cate">
+        <h1 id="makeawish">Make a wish and you are served !</h1>
         <div class="row">
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col1" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col2" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col3" id="cat"></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col1 Voyage" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'voyage' | lower}) }}" class="liencat">Voyage</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col2 Peinture" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'peinture' | lower}) }}" class="liencat">Peinture</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col3 Musique" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'musique' | lower}) }}" class="liencat">Musique</a></div>
         </div>
         <div class="row">
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col1" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col2" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col3" id="cat"></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col1 Beaute" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'beaute' | lower}) }}" class="liencat">Beauté</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col2 Photovideo" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'photo' | lower}) }}" class="liencat">Photo/video</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col3 Informatique" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'informatique' | lower}) }}" class="liencat">Informatique</a></div>
         </div>
         <div class="row">
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col1" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col2" id="cat"></div>
-            <div class="col-xs-3 col-md-3 col-md-offset-1 col3" id="cat"></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col1 Sport" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'sport' | lower}) }}" class="liencat">Sport</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col2 Cuisine" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'cuisine' | lower}) }}" class="liencat">Cuisine</a></div>
+            <div class="col-xs-3 col-md-3 col-md-offset-1 col3 Divertissement" id="cat"><a href="{{ url('deliverr_categorie', {libellecategorie:'divertissement' | lower}) }}" class="liencat">Divertissement</a></div>
         </div>
+        
 
 
     </div> <!-- container -->
+    <footer class="footer">
+        <div class="container">
+            <!--All right-->
+            <div class="allright">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <p> © 2017 <a href="#">DELIVERR</a>. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 {% endblock %}
