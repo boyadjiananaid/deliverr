@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
 
-    <head>
+    <!-- Contenu du Site -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ url('index_index') }}">Accueil</a></li>
+                    <li><a href="#about">A Propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
 
-        <meta charset="utf-8">
-        <title>{% block title '' %} - Deliverr</title>
-        <meta name="description" content="CLINK - Site de rencontre de colocataires">
-        <meta name="keywords" content="HTML,CSS,JavaScript,PHP">
-        <meta name="author" content="Groupe CLAG">
-        <!-- @Medias -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block contenu %}{% endblock %}
 
-    </head>
-
-    <body>
-        
-
-            {{ render(controller('App\\Controller\\IndexController::menu',{'active': active })) }}
-
-
-            {% block contenu %}{% endblock %}
-
-
-            {% include 'inc/footer.html' %}
-
-
-            {% block javascripts %}{% endblock %}
-
-            
-
-    </body>
-
-
+    <!-- Javascripts -->
+    {% block javascripts %}{% endblock %}
+    
+</body>
 </html>

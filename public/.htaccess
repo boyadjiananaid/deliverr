@@ -1,9 +1,4 @@
-<IfModule mod_rewrite.c>
-    Options -MultiViews
-    RewriteEngine On
-    RewriteBase /deliverr/public/
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)? index.php/$1 [QSA,L]
-    RewriteRule ^/?$ /deliverr/public/ [R=301]
-</IfModule>
+# Merci Loïc !
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L,QSA]

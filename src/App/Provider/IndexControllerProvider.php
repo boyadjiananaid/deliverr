@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Provider;
-
 use Silex\Api\ControllerProviderInterface;
-
 class IndexControllerProvider implements ControllerProviderInterface {
     
     /**

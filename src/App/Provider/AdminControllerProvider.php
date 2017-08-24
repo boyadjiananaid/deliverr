@@ -1,10 +1,7 @@
 <?php
-
 namespace TechNews\Controller\Provider;
-
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
-
 class AdminControllerProvider implements ControllerProviderInterface {
     
     //    ICI : FONCTION POUR AJOUTER/MODIFIER SERVICES PAR L'ADMIN. EXEMPLE POUR AJOUTER ARTICLE DANS TECHNEWS :
