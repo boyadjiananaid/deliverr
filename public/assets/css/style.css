@@ -34,11 +34,11 @@ body {
   z-index: -2;
 }
 .formu2 {
-    height: 10%;
+    height: 15%;
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: -1;
+  z-index: 1;
 }
 .navbar-default {
     background-color: #2d296b!important;
@@ -97,16 +97,31 @@ header {
   align-items: center;
   color: #fefefe;
 }
+.backcontact{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    height: 90%;
+    width: 100%;
+    margin: 0;
+}
+.contact{
+    margin-top: 3%;
+    border: 3px solid #2d296b;
+    border-radius: 5%;
+    padding: 5%;
+    background-color: rgba(75, 17, 63, 0.42);
+}
 #cat {
     margin-top: 2%;
     height: 20vh;
     text-align: center;
     color: transparent;
     z-index: 2;
+    border-radius: 5%;
 }
 #makeawish {
     position: relative;
-    left: 31%;
+    left: 26%;
     font-size: 2.5em;
 }
 #cat .liencat {

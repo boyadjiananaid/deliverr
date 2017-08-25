@@ -18,28 +18,42 @@ class IndexControllerProvider implements ControllerProviderInterface {
         $controllers
             # On associe une Route à un Controller et une Action
             ->get('/', 'App\Controller\IndexController::indexAction')
-            ->assert('libellecategorie', '[^/]+')
             # En option je peux donner un nom à la route, qui servira plus tard
             # pour la créations de lien : "controller_action"
             ->bind('deliverr_home');
 
         # Page categories
         $controllers
-            ->get('/{libellecategorie}', 'App\Controller\IndexController::categorieAction')
+            ->get('/categorie/{libellecategorie}', 'App\Controller\IndexController::categorieAction')
             ->assert('libellecategorie', '[^/]+')
             ->bind('deliverr_categorie');
         
         # Page sous-categories
         $controllers
-            ->get('/{libellesouscategorie}', 'App\Controller\IndexController::sousCategorieAction')
+            ->get('/souscategorie/{libellesouscategorie}', 'App\Controller\IndexController::sousCategorieAction')
             ->assert('libellesouscategorie', '[^/]+')
             ->bind('deliverr_souscategorie');
 
         # Page services
         $controllers
-            ->get('/{libellecategorie}/{slugservice}_{idservice}.html', 'App\Controller\IndexController::serviceAction')
+            ->get('/souscategorie/{libellesouscategorie}/{slugservice}_{idservice}.html', 'App\Controller\IndexController::serviceAction')
             ->assert('idservice', '\d+')
             ->bind('deliverr_service');
+        
+        # Page contact
+        $controllers
+            ->get('//contact', 'App\Controller\IndexController::contactAction')
+            ->bind('deliverr_contact');
+        
+        # Page panier
+        $controllers
+            ->get('//panier', 'App\Controller\IndexController::panierAction')
+            ->bind('deliverr_panier');
+        
+        # Page FAQ
+        $controllers
+            ->get('//faq', 'App\Controller\IndexController::faqAction')
+            ->bind('deliverr_faq');
 
 
         $controllers

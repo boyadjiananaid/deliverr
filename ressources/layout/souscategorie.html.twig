@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {# Block de title défini dans base.html.twig #}
-{% block title %} d {% endblock %}
+{% block title %} {{ categorie }} - Deliverr {% endblock %}
 
 {# Block de Contenu défini dans base.html.twig #}
 {% block contenu %}
@@ -12,7 +12,7 @@
     <h1 id="makeawish">Make a wish and you are served !</h1>
     <div class="row">
         {% for souscategorie in souscategories %}
-        <div class="col-xs-3 col-md-3 col-md-offset-1 col1 Voyage" id="cat"><a href="{{ url('deliverr_souscategorie', {libellesouscategorie: souscategorie.LIBELLESOUSCATEGORIE | lower}) }}" class="liencat">{{ souscategorie.LIBELLESOUSCATEGORIE }}</a></div>
+        <div class="col-xs-3 col-md-3 col-md-offset-1 Voyage" id="cat"><a href="{{ url('deliverr_souscategorie', {libellesouscategorie: souscategorie.LIBELLESOUSCATEGORIE | lower}) }}" class="liencat">{{ souscategorie.LIBELLESOUSCATEGORIE }}</a></div>
         {% endfor %}
     </div>
 

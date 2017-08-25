@@ -9,11 +9,8 @@ class IndexController
      */
     public function indexAction(Application $app) {
         
-        $categories = $app['db']->fetchAll('SELECT * FROM view_name');
 
-        return $app['twig']->render('index.html.twig', [
-            'categories' => $categories
-        ]);
+        return $app['twig']->render('index.html.twig');
     }
     
     public function categorieAction($libellecategorie, Application $app) {
@@ -22,7 +19,8 @@ class IndexController
                                     ->find_result_set();
 
         return $app['twig']->render('souscategorie.html.twig', [
-            'souscategories' => $souscategories
+            'souscategories' => $souscategories,
+            'categorie' => ucfirst($libellecategorie)
         ]);
     }
     
@@ -32,7 +30,8 @@ class IndexController
                                     ->find_result_set();
 
         return $app['twig']->render('listeservice.html.twig', [
-            'services' => $libellesouscategorie
+            'services' => $libellesouscategorie,
+            'souscategorie' => ucfirst($libellesouscategorie)
         ]);
     }
 
@@ -53,6 +52,18 @@ class IndexController
         return $app['twig']->render('menu.html.twig',['categories' => $categories]);
     }
     
+    
+    public function contactAction(Application $app) {
+        return $app['twig']->render('contact.html.twig');
+    }
+    
+    public function panierAction(Application $app) {
+        return $app['twig']->render('panier.html.twig');
+    }
+    
+    public function faqAction(Application $app) {
+        return $app['twig']->render('faq.html.twig');
+    }
     
      public function connexionAction(Application $app, Request $request) {
         return $app['twig']->render('connexion.html.twig', [
