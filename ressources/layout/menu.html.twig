@@ -20,9 +20,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle categories" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="menubtn">Catégories <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="drop">
-                                {% for categorie in categories %}
-                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: categorie.LIBELLECATEGORIE | lower}) }}">{{ categorie.LIBELLECATEGORIE }}</a></li>
-                                {% endfor %}
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'voyage'}) }}">Voyage</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'peinture'}) }}">Peinture</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'musique'}) }}">Musique</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'beaute'}) }}">Beauté</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'photo'}) }}">Photo/vidéo</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'informatique'}) }}">Informatique</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'sport'}) }}">Sport</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'cuisine'}) }}">Cuisine</a></li>
+                                <li><a href="{{ url('deliverr_categorie', {libellecategorie: 'divertissement'}) }}">Divertissement</a></li>
                             </ul>
                         </li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY')%}

@@ -36,7 +36,7 @@ class IndexControllerProvider implements ControllerProviderInterface {
 
         # Page services
         $controllers
-            ->get('/souscategorie/{libellesouscategorie}/{slugservice}_{idservice}.html', 'App\Controller\IndexController::serviceAction')
+            ->get('/souscategorie/{libellesouscategorie}/{idservice}.html', 'App\Controller\IndexController::serviceAction')
             ->assert('idservice', '\d+')
             ->bind('deliverr_service');
         

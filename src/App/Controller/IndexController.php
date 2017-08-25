@@ -14,7 +14,7 @@ class IndexController
     }
     
     public function categorieAction($libellecategorie, Application $app) {
-        $souscategories = $app['idiorm.db']->for_table('view_name')
+        $souscategories = $app['idiorm.db']->for_table('view_souscat')
                                     ->where('LIBELLECATEGORIE', ucfirst($libellecategorie))
                                     ->find_result_set();
 
@@ -28,10 +28,15 @@ class IndexController
         $listeservices = $app['idiorm.db']->for_table('view_name')
                                     ->where('LIBELLESOUSCATEGORIE', ucfirst($libellesouscategorie))
                                     ->find_result_set();
+        
+        $descriptionsouscategorie = $app['idiorm.db']->for_table('view_souscat')
+                                    ->where('LIBELLESOUSCATEGORIE', ucfirst($libellesouscategorie))
+                                    ->find_one();
 
         return $app['twig']->render('listeservice.html.twig', [
-            'services' => $libellesouscategorie,
-            'souscategorie' => ucfirst($libellesouscategorie)
+            'services' => $listeservices,
+            'souscategorie' => ucfirst($libellesouscategorie),
+            'descriptionsouscategorie' => $descriptionsouscategorie
         ]);
     }
 
@@ -39,12 +44,12 @@ class IndexController
         Affichage de la Page Article
         @return Symfony\Component\HttpFoundation\Response;    
     */  
-    public function articleAction(Application $app, $libellecategorie, $slugarticle, $idarticle) {
-        $article = $app['idiorm.db']->for_table('view_articles')->find_one($idarticle);
+    public function serviceAction(Application $app, $libellecategorie, $idservice) {
+        $article = $app['idiorm.db']->for_table('view_articles')
+                                    ->where('IDSERVICE', $idservice)
+                                    ->find_result_set();
 
-        $suggestions = $app['idiorm.db']->for_table('view_articles')->where('LIBELLECATEGORIE', ucfirst($libellecategorie))->where_not_equal('IDARTICLE', $idarticle)->limit(3)->order_by_desc('IDARTICLE')->find_result_set();; #Je récupère les articles de la même catégorie que mon article.
-
-        return $app['twig']->render('article.html.twig',['article'=>$article, 'suggestions'=>$suggestions]);
+        return $app['twig']->render('service.html.twig',['services'=>$article]);
     }
     
     public function menu(Application $app) {
@@ -65,11 +70,8 @@ class IndexController
         return $app['twig']->render('faq.html.twig');
     }
     
-     public function connexionAction(Application $app, Request $request) {
-        return $app['twig']->render('connexion.html.twig', [
-            'error' => $app['security.last_error']($request),
-            'last_username' => $app['session']->get('_security.last_username')
-        ]);
+     public function connexionAction(Application $app) {
+        return $app['twig']->render('connexion.html.twig');
     }
     
     public function inscriptionAction(Application $app) {
