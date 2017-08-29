@@ -8,11 +8,9 @@
 
 
 
-<div class="accroche">
-    <h2 >Make a wish and you are served !</h2>
-</div>
 
-<div style="margin-top: 80px; padding-bottom:120px;">
+
+<div style="margin-top: 100px;">
     <div class="col-xs-10 col-sm-5" style="margin-left:4vw">
 
 
@@ -38,7 +36,7 @@
 
             <div class="thumbnail">
                 <div class="caption">
-                    <a href="{{ url('deliverr_service', {libellesouscategorie: service.LIBELLESOUSCATEGORIE | lower,idservice: service.IDSERVICE | lower}) }}"><img src="{{ asset('assets/images/'~service.MEDIAPRESENTATION) }}"><h3>{{ service.LIBELLESERVICE | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</h3></a>
+                    <a href="{{ url('deliverr_service', {libellesouscategorie: service.LIBELLESOUSCATEGORIE, idservice: service.IDSERVICE, libellecategorie: service.LIBELLECATEGORIE}) }}"><img src="{{ asset('assets/images/'~service.MEDIAPRESENTATION) }}"><h3>{{ service.LIBELLESERVICE | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</h3></a>
                     <p>{{ service.ACCROCHE | raw | convert_encoding('UTF-8', 'ISO-8859-1') }} <a href="prestations.html">Voir la suite</a></p>
                     <br>
                     <p style="text-align:right;">À partir de 10€</p>
@@ -61,13 +59,13 @@
 
 
 
-    <footer class="footerservice">
+    <footer class="footer">
         <div class="container">
             <!--All right-->
             <div class="allright">
                 <div class="row">
                     <div class="col-sm-6 col-xs-12">
-                        <p> © 2017 <a href="#">TECH NEWS</a>. All rights reserved.</p>
+                        <p> © 2017 <a href="{{ url('deliverr_mentions') }}">DELIVERR</a>. All rights reserved.</p>
                     </div>
 
                 </div>

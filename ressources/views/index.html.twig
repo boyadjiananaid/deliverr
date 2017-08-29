@@ -7,7 +7,7 @@
 {% block contenu %}
 <img id="logofond" src="{{ asset('assets/images/background.jpg') }}" class="img-responsive">
 <figure>
-    <img id="logopara" src="{{ asset('assets/images/r-logo2.png') }}" alt="logo Deliverr" width="35%" class="animated rollIn img-responsive">
+    <img id="logopara" src="{{ asset('assets/images/r-logo2.png') }}"  alt="logo Deliverr" width="35%" class="animated rollIn img-responsive">
 </figure>
 <div class="scroll">
     <div class="icon-scroll">
@@ -27,13 +27,14 @@
     <div class="container" id="cate">
         <h1 id="makeawish">Make a wish and you are served !</h1>
         <div class="row">
+            
             <a href="{{ url('deliverr_categorie', {libellecategorie:'voyage' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col1 Voyage" id="cat" ><p class="liencat">Voyage</p></div></a>
             <a href="{{ url('deliverr_categorie', {libellecategorie:'peinture' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col2 Peinture" id="cat" ><p class="liencat">Peinture</p></div></a>
             <a href="{{ url('deliverr_categorie', {libellecategorie:'musique' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col3 Musique" id="cat" ><p class="liencat">Musique</p></div></a>
         </div>
         <div class="row">
             <a href="{{ url('deliverr_categorie', {libellecategorie:'beaute' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col1 Beaute" id="cat" ><p class="liencat">Beauté</p></div></a>
-            <a href="{{ url('deliverr_categorie', {libellecategorie:'photo' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col2 Photovideo" id="cat" ><p class="liencat">Photo/vidéo</p></div></a>
+            <a href="{{ url('deliverr_categorie', {libellecategorie:'media' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col2 Photovideo" id="cat" ><p class="liencat">Media</p></div></a>
             <a href="{{ url('deliverr_categorie', {libellecategorie:'informatique' | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 col3 Informatique" id="cat" ><p class="liencat">Informatique</p></div></a>
         </div>
         <div class="row">
@@ -51,7 +52,7 @@
             <div class="allright">
                 <div class="row">
                     <div class="col-sm-6 col-xs-12">
-                        <p> © 2017 <a href="#">DELIVERR</a>. All rights reserved.</p>
+                        <p> © 2017 <a href="{{ url('deliverr_mentions') }}">DELIVERR</a>. All rights reserved.</p>
                     </div>
                 </div>
             </div>

@@ -61,5 +61,17 @@ $app->error(function (\Exception $e) use ($app) {
     };
 });
 
+$app->register(new Silex\Provider\SwiftmailerServiceProvider());
+
+
+$app['swiftmailer.options'] = array(
+	'host' => 'smtp.mail.yahoo.com',
+	'port' => 587,
+	'username' => 'deliverr.gac@yahoo.com',
+	'password' => 'Deliv2017*',
+	'encryption' => 'tls',
+	'auth_mode' => 'login'
+);
+
 #12 : On retourne $app
 return $app;

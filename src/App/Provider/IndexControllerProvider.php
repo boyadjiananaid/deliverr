@@ -27,7 +27,7 @@ class IndexControllerProvider implements ControllerProviderInterface {
             ->get('/categorie/{libellecategorie}', 'App\Controller\IndexController::categorieAction')
             ->assert('libellecategorie', '[^/]+')
             ->bind('deliverr_categorie');
-        
+
         # Page sous-categories
         $controllers
             ->get('/souscategorie/{libellesouscategorie}', 'App\Controller\IndexController::sousCategorieAction')
@@ -39,21 +39,27 @@ class IndexControllerProvider implements ControllerProviderInterface {
             ->get('/souscategorie/{libellesouscategorie}/{idservice}.html', 'App\Controller\IndexController::serviceAction')
             ->assert('idservice', '\d+')
             ->bind('deliverr_service');
-        
+
         # Page contact
         $controllers
-            ->get('//contact', 'App\Controller\IndexController::contactAction')
+            ->match('/contact', 'App\Controller\IndexController::contactAction')
             ->bind('deliverr_contact');
-        
+
+
         # Page panier
         $controllers
-            ->get('//panier', 'App\Controller\IndexController::panierAction')
+            ->get('/panier', 'App\Controller\IndexController::panierAction')
             ->bind('deliverr_panier');
-        
+
         # Page FAQ
         $controllers
-            ->get('//faq', 'App\Controller\IndexController::faqAction')
+            ->get('/faq', 'App\Controller\IndexController::faqAction')
             ->bind('deliverr_faq');
+        
+        # Page mentions
+        $controllers
+            ->get('/mentions', 'App\Controller\IndexController::mentionsAction')
+            ->bind('deliverr_mentions');
 
 
         $controllers

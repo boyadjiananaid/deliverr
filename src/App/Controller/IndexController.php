@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 class IndexController
 {
     /**
@@ -44,8 +45,8 @@ class IndexController
         Affichage de la Page Article
         @return Symfony\Component\HttpFoundation\Response;    
     */  
-    public function serviceAction(Application $app, $libellecategorie, $idservice) {
-        $article = $app['idiorm.db']->for_table('view_articles')
+    public function serviceAction(Application $app, $libellesouscategorie, $idservice) {
+        $article = $app['idiorm.db']->for_table('view_name')
                                     ->where('IDSERVICE', $idservice)
                                     ->find_result_set();
 
@@ -58,16 +59,41 @@ class IndexController
     }
     
     
-    public function contactAction(Application $app) {
+    public function contactAction(Application $app, Request $request) {
+   
+        
+        if($request->isMethod('POST')) :
+        
+        $message = (new \Swift_Message('My important subject here'))
+            ->setFrom(array('deliverr.gac@yahoo.com'))
+            ->setTo(array('deliverr.gac@yahoo.com'))
+            ->setBody($request->get('message'), 'text/html');
+    
+        
+            return $app['mailer']->send($message);
+        
+        
+        
+        endif;
+
+
         return $app['twig']->render('contact.html.twig');
+
     }
+    
     
     public function panierAction(Application $app) {
         return $app['twig']->render('panier.html.twig');
     }
     
+    
+    
     public function faqAction(Application $app) {
         return $app['twig']->render('faq.html.twig');
+    }
+    
+    public function mentionsAction(Application $app) {
+        return $app['twig']->render('mentions.html.twig');
     }
     
      public function connexionAction(Application $app) {

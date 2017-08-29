@@ -37,10 +37,10 @@ body {
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 3;
 }
 .navbar-default {
-    background-color: #2d296b!important;
+    background-color: transparent!important;
     border: none!important;
 }
 h2,
@@ -60,13 +60,16 @@ figure {
     margin: 0;
 }
 header {
-    height: 70%;
+    height: 80%;
     background-color: #2d296b;
 }
 #menuDroite {
     height: 80%;
     display: flex;
     align-items: center;
+}
+#drop li a {
+    z-index: 8!important;
 }
 #menuDroite #login {
     display: flex;
@@ -147,11 +150,26 @@ header {
     position: relative;
     top: 35%;
 }
+
+
 #cat:hover {
-    color:#681757;
-    filter:grayscale(0.5);
-    
+    /*filter:grayscale(1);*/
 }
+
+#cat:hover  {
+    color: white;
+    /*z-index: inherit;*/
+    text-shadow: 3px 3px 3px #fd3e94;
+
+}
+
+/*test*/
+
+
+
+
+
+
 #cate {
     margin-top: 4%;
 }
@@ -302,8 +320,8 @@ aside form select {
     margin: 15px 0;
 }
 .footer {
-    position:absolute;
-    bottom: 0;
+    position:fixed;
+    bottom: 0px;
     background-color: #681757;
     width: 100%;
     display: flex;
@@ -509,3 +527,178 @@ h3 {
         opacity: 1;
     }
 }
+
+
+
+
+section{
+    background-color: #ffe1e4;
+    height: 95%;
+}
+
+h2{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 3em;
+    font-family: 'Josefin Sans', sans-serif;
+    color : #2d296b;
+}
+
+
+.checkbox{
+    margin-left:15%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3em;
+
+}
+
+.inline {
+    display: inline-block;
+}
+
+
+
+fieldset{
+    padding:20px;
+    margin-bottom:10px;
+    background-color: #fff7f7;
+    opacity: 0.8;
+    -moz-box-shadow: 10px 10px 5px 0px #681757;
+    -webkit-box-shadow: 10px 10px 5px 0px #681757;
+    -o-box-shadow: 10px 10px 5px 0px #681757;
+    box-shadow: 10px 10px 5px 0px #681757;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#681757, Direction=134, Strength=5);
+
+}
+#identite{
+    margin-left: 16%;
+}
+#etiquette{
+    color: #2d296b;
+    position:relative;
+    left: 34px;
+    bottom: 70px;
+    font-family: 'Josefin Sans', sans-serif;
+   font-size: 1.5em;
+    font-weight: bold;
+}
+
+#etiquette:hover {
+    color: transparent;
+}
+#checkbox{ 
+    margin-top: 13%;
+
+}
+
+input[type=text]{ 
+    background-color: #f9f9f9;
+    color: #2d296b;
+    font-family: 'Josefin Sans', sans-serif;
+   font-size: 1.3em;
+}
+
+.g-recaptcha{
+    margin-left: 40%;
+    margin-top : 10%;
+}
+.rc-anchor-checkbox-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 17px;
+    
+}
+input[type=submit]{
+    width:100px;
+    margin-left:12%;
+    box-shadow:3px 3px 3px #700535;
+    cursor:pointer;
+    color: #700535;
+    background-color: #f9f9f9;
+    border-color: #bcb6b7;
+    margin-top : 10%;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 1.3em;
+}
+    
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #681757;
+    border-color: #681757;
+}
+
+
+/*Upload de fichier*/
+
+.uploaders {
+    text-align: center;
+}
+
+.uploader {
+    text-align: center;
+    display: inline-block;
+    margin-left: 30%;
+    background: #f9f9f9;
+    width: 100px;
+    height: 100px;
+    -moz-box-shadow: #333 3px 3px 10px;
+    -webkit-box-shadow: #333 3px 3px 10px;
+    box-shadow: #333 3px 3px 10px;
+    position: relative;
+}
+.uploader:hover {
+    background: #681757;
+}
+.uploader::before {
+    font-size: 60px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 100px;
+}
+.uploader.full::before {
+    display: none;
+}
+.uploader.full:hover::before {
+    display: block;
+
+    /*content: "\f204";*/
+    color: white;
+}
+
+.uploader {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Le champ d'input file. Il est nécessaire pour l'envoi mais impossible
+* à personnaliser. Nous allons donc le cacher tout en s'assurant
+* qu'il prenne bien toute la place, pour ne pas perdre de clics */
+
+.uploader input[type='file'] {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+
+    
+}
+/* Une fois qu'un fichier a été choisi, l'uploader prend la classe "full"*/
+.uploader.full img.preview {
+    background: white;
+    width: 100%;
+}
+/*Ce hover est là pour faire comprendre qu'un clic sur l'uploader le vide*/
+.uploader.full:hover::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+/* Une fois plein, l'input ne nous sert plus, nous le retirons donc pour éviter toute interaction*/
+.uploader.full input[type='file'] {
+    display: none;
+}
+

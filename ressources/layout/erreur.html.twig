@@ -1,17 +1,32 @@
 {% extends 'layout.html.twig' %}
 
 {# Block de title défini dans base.html.twig #}
-{% block title %} Oops {% endblock %}
+{% block title %} Erreur - Deliverr {% endblock %}
 
 {# Block de Contenu défini dans base.html.twig #}
 {% block contenu %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6 col-xs-push-3">
-                <h1 class="text-center">{{ message }}</h1>
-                 <a href="{{ url('index_index') }}" class="btn-block btn btn-default">RETOURNER VERS L'ACCUEIL</a>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-push-3">
+            <h1 class="text-center"><br><br>Une erreur inopinée est survenue.</h1>
+            <a href="{{ url('deliverr_home') }}" class="btn-block btn btn-default">RETOURNER VERS L'ACCUEIL</a>
+        </div>
     </div><!-- /.container -->
+</div>
 
-{% endblock %}
+    <footer class="footerservice">
+        <div class="container">
+            <!--All right-->
+            <div class="allright">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <p> © 2017 <a href="{{ url('deliverr_mentions') }}">DELIVERR</a>. All rights reserved.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% endblock %}

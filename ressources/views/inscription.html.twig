@@ -9,10 +9,188 @@
 
 {% block contenu %}
 
-    
 
 
-<!--    FAIRE LE FORMULAIRE D'INSCRIPTION ICI EN HTML-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-9 col-xs-push-1">
+                <h2 class="text-center">Make a wish and you are served !</h2 >
+                <form action="{{ path('deliverr_inscription_post') }}" class="form-horizontal" method="post" role="form" >
+                    <fieldset>
+                        <div class="row" id="form_inscription">
+
+                            <!--Partie gauche du formulaire-->
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <!--Upload fichier-->
+                                    <div class="col-md-3 col-offset-1 fileimg">
+                                        <div class="uploaders fileimg">
+                                            <div class="uploader fileimg">
+                                                <img class="preview" class="fileimg" /><input name="file_delete" type="hidden" value="false" class="fileimg" /><input name="file" type="file" class="fileimg"/>
+                                            </div>
+                                            <div id="etiquette">Photo</div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-7" id="identite">
+                                        <div class="form-group">
+                                            <label for="nom" class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="NOMMEMBRE" id="nom" placeholder="Nom">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prenom" class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="PRENOMMEMBRE" id="prenom" placeholder="Prénom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="login" class="col-sm-2 control-label">
+                                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="LOGINMEMBRE" id="login" placeholder="Login">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="pass" class="col-sm-2 control-label">
+                                        <i class="glyphicon glyphicon-lock" aria-hidden="true"></i>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" name="MDPMEMBRE" id="pass" placeholder="Mot de passe">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmation_pass" class="col-sm-2 control-label">
+                                        <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
+                                        <i class="glyphicon glyphicon-lock glyphicon-ok" aria-hidden="true"></i>
+                                    </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="tel" id="confirmation_pass" placeholder="Confirmation mot de passe">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">
+                                    <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="EMAILMEMBRE" id="email" placeholder="Courriel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- API Recaptcha -->
+                                <!--<div class=" col-md-4 col-offset-2">-->
+                                <div class="g-recaptcha" data-sitekey="6Le2mS4UAAAAACMuo0Op5g9SEP1-eJ0PfD_Z066u" style="transform:scale(0.75);-webkit-transform:scale(0.75);transform-origin:0 0;-webkit-transform-origin:0 0;">
+                                </div> 
+                                <!-- </div>-->
+                            </div>
+                        </div>
+
+
+
+                        <!--Partie droite du formulaire-->
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="adresse" class="col-sm-2 control-label"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="ADRESSEMEMBRE" id="adresse" placeholder="Adresse postale">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label for="code_postal" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="CPMEMBRE" id="code_postal" placeholder="Code postal">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ville" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="VILLEMEMBRE" id="ville" placeholder="Ville">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone" class="col-sm-2 control-label">
+                                    <i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="TELEPHONEMEMBRE" class="form-control" id="telephone" placeholder="Téléphone">
+                                </div>
+                            </div>
+                            <div class="form-group" id="checkbox">  <!-- Checkbox Group !-->
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ACCORDDIFFUSION" value="coordonnees">
+                                        J'accepte la diffusion de mes coordonnées
+                                    </label>
+                                </div>
+
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input class="check" type="checkbox"  name="NEWSLETTER" value="newsletter">
+                                        Je veux recevoir la newsletter
+                                    </label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"  name="mention" value="mentions">
+                                        J'ai lu et j'accepte les mentions légales
+                                    </label>
+                                </div>
+                            </div>	<!-- Fin Checkbox Group -->
+                            <input type="submit" class="btn btn-primary" value="Valider" id="valider">
+
+                        </div> <!-- Fin formulaire partie droite -->
+
+
+
+
+
+
+
+
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div> <!-- container -->
+</section>
+<footer class="footerservice">
+    <div class="container">
+        <!--All right-->
+        <div class="allright">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <p> © 2017 <a href="{{ url('deliverr_mentions') }}">DELIVERR</a>. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 

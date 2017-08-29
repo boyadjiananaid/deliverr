@@ -12,7 +12,7 @@
     <h1 id="makeawish">Make a wish and you are served !</h1>
     <div class="row">
         {% for souscategorie in souscategories %}
-        <a href="{{ url('deliverr_souscategorie', {libellesouscategorie: souscategorie.LIBELLESOUSCATEGORIE | lower}) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 Voyage animated fadeIn" id="cat"><p class="liencat">{{ souscategorie.LIBELLESOUSCATEGORIE }}</p></div></a>
+        <a href="{{ url('deliverr_souscategorie', {libellesouscategorie: souscategorie.LIBELLESOUSCATEGORIE | lower | raw | convert_encoding('UTF-8', 'ISO-8859-1') }) }}"><div class="col-xs-3 col-md-3 col-md-offset-1 Voyage animated fadeIn" id="cat"><p class="liencat">{{ souscategorie.LIBELLESOUSCATEGORIE | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</p></div></a>
         {% endfor %}
     </div>
 
@@ -24,7 +24,7 @@
         <div class="allright">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                    <p> © 2017 <a href="#">DELIVERR</a>. All rights reserved.</p>
+                    <p> © 2017 <a href="{{ url('deliverr_mentions') }}">DELIVERR</a>. All rights reserved.</p>
                 </div>
             </div>
         </div>
